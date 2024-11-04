@@ -7,16 +7,16 @@ source ${topdir}/config_env.sh
 #------------------------------------------------------------------
 
 cat <<EOF > veros-deps.yaml
-name: mpi4jax
+name: veros-deps
 channels:
   - file:///glade/derecho/scratch/benkirk/conda-recipes/output
   - conda-forge
 
 dependencies:
   - python =3.11
+  - h5py =*_derecho
   - jax =*_derecho
   - jaxlib =*_derecho
-  - h5py =*_derecho
   - mpi4jax =*_derecho
   - mpi4py =*_derecho
   - numpy <2
@@ -27,6 +27,7 @@ dependencies:
 EOF
 cat ./veros-deps.yaml
 
+conda deactivate
 conda env create --file ./veros-deps.yaml --prefix ./veros-env
 conda activate ./veros-env
 

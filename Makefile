@@ -19,4 +19,4 @@ derecho_%.py: %.py $(MAKEFILE_DIR)/derecho_jax_multigpu_init.py $(MAKEFILE_LIST)
 	rm -f $@
 	cp $< $@
 	lineno=$$(grep -n "# -- end of auto-generated header" $< | cut -d: -f1) ;\
-	sed -i "$${lineno}r $(MAKEFILE_DIR)/derecho_jax_multigpu_init.py" $@
+	[ -z "$${lineno}" ] || sed -i "$${lineno}r $(MAKEFILE_DIR)/derecho_jax_multigpu_init.py" $@

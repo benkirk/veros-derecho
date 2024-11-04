@@ -6,8 +6,6 @@ topdir=$(git rev-parse --show-toplevel)
 source ${topdir}/config_env.sh
 #------------------------------------------------------------------
 
-conda activate ./veros-env
-
 #-------------------------------------------------------------------------------
 # setup examples
 echo "Creating examples..."
