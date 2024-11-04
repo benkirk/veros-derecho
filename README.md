@@ -3,7 +3,7 @@
 Utility scripts for running [Veros](https://veros.readthedocs.io/en/latest/) on Derecho.
 
 ## Quickstart
-```pre
+```bash
 git clone https://github.com/benkirk/veros-derecho.git
 cd veros-derecho
 
