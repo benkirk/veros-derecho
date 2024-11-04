@@ -11,7 +11,7 @@ source ${topdir}/config_env.sh
 echo "Creating examples..."
 mkdir -p ./veros-tests
 
-for exe in "acc" "north_atlantic" "global_1deg"; do
+for exe in "acc" "north_atlantic" "global_1deg" "global_flexible"; do
     cd ${topdir}
     veros copy-setup ${exe} --to ./veros-tests/${exe}
     if [ -f ./veros-tests/${exe}/${exe}.py ]; then

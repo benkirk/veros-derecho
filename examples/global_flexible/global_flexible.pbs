@@ -1,0 +1,23 @@
+#!//bin/bash
+#PBS -A SCSG0001
+#PBS -l select=2:ncpus=64:mpiprocs=4:ngpus=4
+#PBS -j oe
+#PBS -q main
+#PBS -l walltime=01:00:00
+
+#------------------------------------------------------------------
+# common config
+topdir=$(git rev-parse --show-toplevel)
+source ${topdir}/config_env.sh
+#------------------------------------------------------------------
+
+case=${topdir}/veros-tests/global_flexible/derecho_global_flexible.py
+
+echo "Running ${case} from $(pwd) [$(date)]" && echo && echo
+
+mpibind \
+    veros run --backend jax --device gpu --force-overwrite \
+    ${case} \
+    -n 4 2
+
+echo && echo && echo "Done [$(date)]"
